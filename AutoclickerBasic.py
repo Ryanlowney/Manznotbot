@@ -32,7 +32,7 @@ def ReassingMouseSpots():
 		keyspot1 = input("Place mouse over the Second slot so that it overlaps both the alching slot and your item slot. Then press a key to continue.") 
 		Position2Tuple = pyautogui.position()
 	else:
-		return
+		return(0,4)
 	return (Position1Tuple,Position2Tuple)
 def ItemGeFetch(ItemID):
 	#http://services.runescape.com/m=itemdb_rs/api/catalogue/detail.json?item= ItemID
@@ -162,9 +162,15 @@ def AlcingLoop(Item1,Item2):
 		
 		S+=1
 		print("Loops Done: " , S)
-xSlot2,xSlot3=ReassingMouseSpots()
-xSlot2,ySlot2=xSlot2
-xSlot3,ySlot3=xSlot3
+xSlotI,xSlotO=ReassingMouseSpots()
+if(xSlotI==0):
+	print("Carry On")
+else:
+	xSlot2,ySlot2=xSlotI
+	xSlot3,ySlot3=xSlotO
+
+
+
 item1, item2= AssignVariables()
 item1 =int(item1)
 item2 = int(item2)
